@@ -2,7 +2,6 @@ const page = require('../../page');
 const helper = require('../../helper')
 
 describe('Create an order', () => {
-    describe('Create an order', () => {
 
         //1.Setting the address
         it('should set the address', async () => {
@@ -12,7 +11,6 @@ describe('Create an order', () => {
             await fromField.getValue();
             const toField = $(page.toField);
             await toField.getValue();
-            await browser.pause(10000);
             await expect(fromField).toHaveValue('East 2nd Street, 601');
             await expect(toField).toHaveValue('1300 1st St');
         })
@@ -26,7 +24,6 @@ describe('Create an order', () => {
         const supportivePlan = await $(page.supportivePlan);
         await supportivePlan.waitForDisplayed();
         await supportivePlan.click();
-        await browser.pause(10000);
         await expect(supportivePlan).toBeDisplayed();
 
     })
@@ -64,7 +61,6 @@ describe('Create an order', () => {
         await cardNumberInput.setValue('123400004321')
         const cvvCode = await $(page.cvvCode);
         await cvvCode.setValue('12');
-        await browser.pause(30000);
         await expect(cardNumberInput).toHaveValue('123400004321');
         await expect(cvvCode).toHaveValue('12');
         const linkButton = await $(page.linkButton);
@@ -78,7 +74,6 @@ describe('Create an order', () => {
         const driverMessage = await $(page.driverMessage);
         await driverMessage.setValue('Hello driver');
         const message = await driverMessage.getValue();
-        await browser.pause(20000);
         await expect(message).toBe('Hello driver');
     })
 
@@ -118,4 +113,4 @@ describe('Create an order', () => {
         const orderBody = await $(page.orderBody);
         await expect(orderBody).toBeExisting();
     })
-})        
+      
